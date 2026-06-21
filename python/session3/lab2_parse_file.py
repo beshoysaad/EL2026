@@ -17,6 +17,18 @@ def parse_config_file(file_path):
     pattern = r'^([A-Z_][A-Z0-9_:${}]*)\s*=\s*"([^"]*(?:\\[\s\S]*?)*)"'
 
     """
+    result_val = {}
+    with open(file_path, "r", encoding="utf-8") as file:
+        for line in file:
+            line = line.strip()
+            if not line or line.startswith("#") or line.startswith("inherit") or line.startswith("do_"):
+                continue
+            if "=" in line:
+                key, value = line.split("=", 1)
+                key = key.strip()
+                value = value.strip().strip('"')
+                result_val[key] = value
+    return result_val
 
 
 if __name__ == "__main__":

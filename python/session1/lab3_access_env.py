@@ -4,6 +4,14 @@ import os
 
 
 def access_env(env_var):
+    """Access the value of an environment variable.
+
+    Args:
+        env_var (str): The name of the environment variable.
+
+    Returns:
+        str: The value of the environment variable, or None if not found.
+    """
     return os.environ.get(env_var)
 
 

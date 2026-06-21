@@ -11,7 +11,10 @@ def tuple_operations(tuple1, tuple2):
     Returns:
         dict: Dictionary with concatenation, repetition,
     """
-    # Write your solution here
+    return {
+        "concatenation": tuple1 + tuple2,
+        "repetition": tuple1 * 2,
+    }
 
 
 def find_tuple_stats(numbers_tuple):
@@ -23,7 +26,11 @@ def find_tuple_stats(numbers_tuple):
     Returns:
         tuple: (sum, max, min, length)
     """
-    # Write your solution here
+    total = sum(numbers_tuple)
+    max_value = max(numbers_tuple)
+    min_value = min(numbers_tuple)
+    length = len(numbers_tuple)
+    return total, max_value, min_value, length
 
 
 def count_elements_in_tuple(data_tuple, element):
@@ -36,7 +43,7 @@ def count_elements_in_tuple(data_tuple, element):
     Returns:
         int: Number of occurrences
     """
-    # Write your solution here
+    return data_tuple.count(element)
 
 
 def tuple_indexing_slicing(data_tuple):
@@ -48,7 +55,14 @@ def tuple_indexing_slicing(data_tuple):
     Returns:
         dict: Dictionary with various slicing results
     """
-    # Write your solution here
+    return {
+        "first_element": data_tuple[0],
+        "last_element": data_tuple[-1],
+        "all_but_first": data_tuple[1:],
+        "all_but_last": data_tuple[:-1],
+        "every_second": data_tuple[::2],
+        "reversed": data_tuple[::-1],
+    }
 
 
 if __name__ == "__main__":

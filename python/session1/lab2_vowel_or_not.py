@@ -1,8 +1,15 @@
 """Write a Python program to test whether a passed letter is a vowel or not."""
 
-
 def vowel(letter):
-    return letter.lower() in "aeiou"   
+    """Check if a letter is a vowel.
+
+    Args:
+        letter (str): A single character.
+
+    Returns:
+        bool: True if the letter is a vowel, False otherwise.
+    """
+    return letter.lower() in "aeiou"
 
 
 if __name__ == "__main__":

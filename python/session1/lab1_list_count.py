@@ -1,7 +1,14 @@
 """Write a Python program to count the number 4 in a given list."""
 
-
 def count(lst):
+    """Count the number of 4s in a given list.
+    
+    Args:
+        lst (list): A list of integers.
+    
+    Returns:
+        int: The number of times 4 appears in the list.
+    """
     return lst.count(4)
 
 if __name__ == "__main__":

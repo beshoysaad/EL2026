@@ -4,7 +4,13 @@ import requests
 
 
 def get_info_location():
-    """Write your solution here. Don't forget to return the result at the end."""
+    """Retrieve location information based on the user's IP address.
+    
+    Returns:
+        dict: A dictionary containing location information including IP, city, region, country, coordinates, and organization.
+    """
+    response = requests.get("https://ipinfo.io",timeout=5)
+    return response.json()
 
 
 if __name__ == "__main__":

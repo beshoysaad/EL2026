@@ -81,3 +81,12 @@ cython_debug/
 .pypirc
 .cursorignore
 .cursorindexingignore
+
+# C++ build artifacts
+a.out
+*.o
+*.obj
+*.out
+*.bin
+*.exe
+*.gch

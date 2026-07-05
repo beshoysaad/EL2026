@@ -1,0 +1,41 @@
+name: C++
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        gcc-version: ["12", "13", "14"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up g++ ${{ matrix.gcc-version }}
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y g++-${{ matrix.gcc-version }}
+          g++-${{ matrix.gcc-version }} --version
+      - name: Run C++ labs
+        env:
+          CXX: g++-${{ matrix.gcc-version }}
+        run: |
+          chmod +x run_cpp.sh
+          ./run_cpp.sh
+
+  # Aggregate check — this is the required status check on main.
+  # It always reports, so PRs that only touch python/ still get a green "C++".
+  cpp:
+    name: C++
+    if: always()
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check C++ matrix result
+        run: |
+          if [ "${{ needs.build.result }}" != "success" ]; then
+            echo "C++ pipeline failed"
+            exit 1
+          fi
+          echo "C++ pipeline passed"

@@ -2,11 +2,7 @@ name: Python
 
 on:
   push:
-    paths:
-      - 'python/**'
   pull_request:
-    paths:
-      - 'python/**'
 
 jobs:
   build:
@@ -29,3 +25,19 @@ jobs:
         run: |
           chmod +x run_python.sh
           ./run_python.sh
+
+  # Aggregate check — this is the required status check on main.
+  # It always reports, so PRs that only touch cpp/ still get a green "Python".
+  python:
+    name: Python
+    if: always()
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Python matrix result
+        run: |
+          if [ "${{ needs.build.result }}" != "success" ]; then
+            echo "Python pipeline failed"
+            exit 1
+          fi
+          echo "Python pipeline passed"

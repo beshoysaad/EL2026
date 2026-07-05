@@ -102,8 +102,12 @@ g++ -Wall -Wextra -std=c++17 cpp/session1/lab1_ascii_print.cpp -o lab1
 
 ## CI/CD
 
-- The **Python** pipeline triggers on any push/PR that modifies files under `python/`. It tests across Python 3.9–3.13.
-- The **C++** pipeline triggers on any push/PR that modifies files under `cpp/`. It builds and runs every lab with `g++ -Wall -Wextra -std=c++17`, tested across g++ 12–14. Compiler warnings are shown but non-blocking.
+Both pipelines run on every push and pull request, and each reports a single required status check (**Python** / **C++**):
+
+- The **Python** pipeline tests across Python 3.9–3.13.
+- The **C++** pipeline builds and runs every lab with `g++ -Wall -Wextra -std=c++17`, tested across g++ 12–14. Compiler warnings are shown but non-blocking.
+
+Because unsolved sessions are skipped (not failed), a team working only on C++ always gets a green **Python** check and vice versa — the two tracks never block each other.
 
 ### Status meanings
 - **🟩 Passed** — session fully solved

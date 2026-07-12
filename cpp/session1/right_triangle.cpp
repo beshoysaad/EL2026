@@ -1,11 +1,17 @@
-#include <algorithm>
 #include <cassert>
 #include <iostream>
 
 bool isRightTriangle(int a, int b, int c) {
-  // write your solution here...
-  // Hint: Use Pythagorean theorem: a² + b² = c² (where c is the largest side)
-  return 0;
+  int max = a, squared_sum = b * b + c * c;
+  if (b > max) {
+    max = b;
+    squared_sum = a * a + c * c;
+  }
+  if (c > max) {
+    max = c;
+    squared_sum = b * b + a * a;
+  }
+  return max * max == squared_sum;
 }
 
 int main() {

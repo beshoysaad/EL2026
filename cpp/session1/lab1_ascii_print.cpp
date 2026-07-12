@@ -1,11 +1,8 @@
 #include <cassert>
-#include <iomanip>
 #include <iostream>
-#include <string>
 
 int getASCIIValue(char character) {
-  // write your solution here...
-  return 0;
+  return static_cast<int>(character);
 }
 
 int main() {

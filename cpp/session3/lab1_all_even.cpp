@@ -5,7 +5,15 @@
 bool allEven(int arr[], int size) {
   // Professional C++ solution using std::all_of with lambda
   // using std::all_of
-  return false;
+
+  if (size == 0) {
+    return true;
+  }
+
+  return std::all_of(arr, arr + size, [](auto x) {
+    return x%2==0;
+  });
+
 }
 
 int main() {

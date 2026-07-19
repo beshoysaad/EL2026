@@ -1,11 +1,19 @@
 #include <cassert>
 #include <iostream>
 
+void shiftElementsLeft(int arr[], int size, int index) {
+  for (int i = index; i < size-1; i++) {
+    arr[i] = arr[i+1];
+  }
+}
+
 int deleteFromArray(int arr[], int size, int target) {
-  // write your solution here...
-  // Hint: Find the target element and shift all elements after it to the left
-  // Hint: Return the new size of the array after deletion
-  // Hint: If target not found, return original size
+  for (int i = 0; i < size;i++) {
+    if (arr[i] == target) {
+      shiftElementsLeft(arr, size, i);
+      return size - 1;
+    }
+  }
   return size;
 }
 

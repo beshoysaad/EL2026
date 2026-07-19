@@ -2,12 +2,15 @@
 #include <iostream>
 
 void findEvenOdd(int arr[], int size, int even[], int odd[], int* evenCount, int* oddCount) {
-  // write your solution here...
-  // Hint: Iterate through the array and check if each number is even (num % 2 == 0) or odd
-  // Hint: Add even numbers to the even array and odd numbers to the odd array
-  // Hint: Update evenCount and oddCount accordingly
   *evenCount = 0;
   *oddCount = 0;
+  for (int i = 0; i < size; i++) {
+    if (arr[i] % 2 == 0) {
+      even[(*evenCount)++] = arr[i];
+    } else {
+      odd[(*oddCount)++] = arr[i];
+    }
+  }  
 }
 
 int main() {

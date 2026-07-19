@@ -2,10 +2,13 @@
 #include <iostream>
 
 int searchInArray(int arr[], int size, int target) {
-  // write your solution here...
-  // Hint: Iterate through the array and compare each element with target
-  // Hint: Return the index if found, return -1 if not found
-  return -1;
+  int index = -1;
+  for (int i = 0; i < size; i++) {
+    if (arr[i] == target) {
+      return i;
+    }
+  }
+  return index;
 }
 
 int main() {
